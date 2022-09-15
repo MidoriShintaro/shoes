@@ -1,0 +1,26 @@
+[
+  {
+    "name": "GIÀY SNEAKER",
+    "brand": "sneaker",
+    "unitInStock": 5,
+    "imageCover": "cat-1.jpg"
+  },
+  {
+    "name": "GIÀY CONVERSE",
+    "brand": "converse",
+    "unitInStock": 5,
+    "imageCover": "cat-2.jpg"
+  },
+  {
+    "name": "GIÀY VANS",
+    "brand": "vans",
+    "unitInStock": 5,
+    "imageCover": "cat-3.jpg"
+  },
+  {
+    "name": "GIÀY NIKE",
+    "brand": "nike",
+    "unitInStock": 5,
+    "imageCover": "cat-4.jpg"
+  }
+]

@@ -1,0 +1,114 @@
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
+                <a class="breadcrumb-item text-dark" href="/all-product">Cửa hàng</a>
+                <span class="breadcrumb-item active">Thủ tục thanh toán</span>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+
+<!-- Checkout Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-lg-7">
+            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Thông tin
+                    đặt hàng</span></h5>
+            <div class="bg-light mb-5 p-30">
+                <div class="row mb-4 justify-content-between align-items-center">
+                    <div class="col-4">
+                        <h6 class="mb-0">Họ tên: </h6>
+                    </div>
+                    <div class="col-8">
+                        <h6 class="mb-0 text-muted">
+                            <%= user.name %>
+                        </h6>
+                    </div>
+                </div>
+                <div class="row mb-4 justify-content-between align-items-center">
+                    <div class="col-4">
+                        <h6 class="mb-0">Địa chỉ email: </h6>
+                    </div>
+                    <div class="col-8">
+                        <h6 class="mb-0 text-muted">
+                            <%= user.email %>
+                        </h6>
+                    </div>
+                </div>
+                <div class="row mb-4 justify-content-between align-items-center">
+                    <div class="col-4">
+                        <h6 class="mb-0">Địa chỉ nhận hàng:</h6>
+                    </div>
+                    <div class="col-8">
+                        <h6 class="mb-0 text-muted">
+                            <%= order.shippingAddress %>
+                        </h6>
+                    </div>
+                </div>
+                <div class="row mb-4 justify-content-between align-items-center">
+                    <div class="col-4">
+                        <h6 class="mb-0">Số điện thoại: </h6>
+                    </div>
+                    <div class="col-8">
+                        <h6 class="mb-0 text-muted">
+                            <%= order.phone %>
+                        </h6>
+                    </div>
+                </div>
+                <div class="row mb-4 justify-content-between align-items-center">
+                    <div class="col-4">
+                        <h6 class="mb-0">Thành phố: </h6>
+                    </div>
+                    <div class="col-8">
+                        <h6 class="mb-0 text-muted">
+                            <%= order.city %>
+                        </h6>
+                    </div>
+                </div>
+                <a href="/updateOrderCheckout" class="btn btn-primary">Thay đổi thông tin</a>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Tổng đơn đặt
+                    hàng</span></h5>
+            <div class="bg-light p-30 mb-5">
+                <div class="border-bottom">
+                    <h6 class="mb-3">Sản phẩm</h6>
+                    <% order.product.forEach((el)=> { %>
+                        <div class="d-flex justify-content-between">
+                            <p><%= el.name %></p>
+                            <p><%= numeral(numeral(el.price).value()).format('0,0') %></p>
+                        </div>
+                        <% }) %>
+                </div>
+                <div class="border-bottom pt-3 pb-2">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h6>Tổng tiền phụ</h6>
+                        <h6><%= numeral(order.totalPrice).format('0,0') %></h6>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="font-weight-medium">Vận chuyển</h6>
+                        <h6 class="font-weight-medium">Miễn phí</h6>
+                    </div>
+                </div>
+                <div class="pt-2">
+                    <div class="d-flex justify-content-between mt-2">
+                        <h5>Tổng tiền</h5>
+                        <h5><%= numeral(order.totalPrice).format('0,0') %></h5>
+                    </div>
+                </div>
+                <div class="bg-light mt-4">
+                    <button class="btn btn-block btn-primary font-weight-bold py-3" id="checkout">Đặt hàng</button>
+                </div>
+            </div>
+            <div class="mb-5">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Checkout End -->

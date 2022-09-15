@@ -1,0 +1,172 @@
+[{
+  "_id": {
+    "$oid": "62f904f75ff35f33605cf980"
+  },
+  "name": "Hoàng Hà",
+  "facebookId": "1463016800798024",
+  "image": "default.jpg",
+  "active": true,
+  "role": "user"
+},{
+  "_id": {
+    "$oid": "62f90f8101039c45aa6fdc6f"
+  },
+  "name": "tran ha",
+  "googleId": "102861543893308361528",
+  "email": "hatran12387@gmail.com",
+  "image": "default.jpg",
+  "active": true,
+  "role": "user",
+  "passwordResetExpires": {
+    "$date": {
+      "$numberLong": "1661100572990"
+    }
+  },
+  "passwordResetToken": "-�[�C%�M}a�\u00058�q�mm��x�J�\t��r�z�",
+  "password": "$2b$12$pguoMlzgRtFMfBTtCTtI5eK03z4LG43ysVTU79XTVBr/d62U9BCNu",
+  "passwordChangedAt": {
+    "$date": {
+      "$numberLong": "1661100003295"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "630f565d8f405fb726201372"
+  },
+  "name": "raito",
+  "email": "raito@gmail.com",
+  "image": "user-1.jpg",
+  "active": true,
+  "password": "$2b$12$T4G5nKA1myziSfRl0/m.a.EvZMAF3AsIL.Mi9L7BWuNPoBto9UeE.",
+  "role": "admin",
+  "phone": {
+    "$numberLong": "3203890507"
+  },
+  "address": "Huyện Thanh Miện, Tỉnh Hải Dương",
+  "city": "Thành Phố Hải Dương"
+},{
+  "_id": {
+    "$oid": "630f570e8f405fb726201376"
+  },
+  "name": "Thế Vinh",
+  "email": "Zing@gmail.com",
+  "image": "user-2.jpg",
+  "active": true,
+  "password": "$2b$12$uFsLU2D3MVXYE6VkUvUyuelwQifH5G.IKV86VQt/7gmBtlMWSF/0O",
+  "role": "user",
+  "phone": {
+    "$numberLong": "3206258758"
+  },
+  "address": "Xã Chi Lăng Nam, Huyện Thanh Miện, Tỉnh Hải Dương",
+  "city": "Thành Phố Hải Dương"
+},{
+  "_id": {
+    "$oid": "630f57528f405fb726201378"
+  },
+  "name": "Huy Hoàng",
+  "email": "Hoang@gmail.com",
+  "image": "user-3.jpg",
+  "active": true,
+  "password": "$2b$12$NvdehoCv75E1N8rZ.ywlZOWQXnJ/HyB1zhP1LlWcgK0YiYasmiVNe",
+  "role": "user",
+  "phone": {
+    "$numberLong": "8417034639"
+  },
+  "address": "Huyện Châu Thành, Tỉnh An Giang",
+  "city": "Thành Phố An Giang"
+},{
+  "_id": {
+    "$oid": "630f57f18f405fb72620137a"
+  },
+  "name": "Chí Tâm",
+  "email": "Tam@gmail.com",
+  "image": "user-4.jpg",
+  "active": true,
+  "password": "$2b$12$WZSVagDPdsrBqrkCCkrSWOlVanyIOm2a6p3pweOAyTiUHcFT1Ki2q",
+  "role": "user",
+  "phone": 633828296,
+  "address": "Huyện Cao Lãnh, Tỉnh Đồng Tháp",
+  "city": "Thành Phố Cao Lãnh"
+},{
+  "_id": {
+    "$oid": "630f5b3d8f405fb72620137c"
+  },
+  "name": "Thanh Loan",
+  "email": "Loan@gmail.com",
+  "image": "user-6.jpg",
+  "active": true,
+  "password": "$2b$12$RuDwncUqq7hP0VPqDfgS6.YXDtCmxxqCAg.6PsEP2Jg6RVY2g1tw.",
+  "role": "user",
+  "phone": 914447926,
+  "address": "Huyện Thanh Chương, Tỉnh Nghệ An",
+  "city": "Thành Phố Vinh"
+},{
+  "_id": {
+    "$oid": "630f60e24d0ae5d122ea6a25"
+  },
+  "name": "Đức Dũng",
+  "email": "Dung@gmail.com",
+  "image": "user-5.jpg",
+  "active": true,
+  "password": "$2b$12$VxQB.7kNcrhDetUng4bdbelUrNdPmITtFR3V/hUEJ4J7/SaDu7pxO",
+  "role": "user",
+  "phone": {
+    "$numberLong": "6503823494"
+  },
+  "address": "Huyện Hoa Lư, Tỉnh Ninh Bình",
+  "city": "Thành Phố Ninh Bình"
+},{
+  "_id": {
+    "$oid": "630f616c4d0ae5d122ea6a27"
+  },
+  "name": "Huyền",
+  "email": "Huyen@gmail.com",
+  "image": "user-7.jpg",
+  "active": true,
+  "password": "$2b$12$rfNbdt5H4mFdgeAaYurZFe63pi.l0Sis2U.z366RiP/beC91anbFy",
+  "role": "user",
+  "phone": 383853972,
+  "address": "Huyện Quỳnh Lưu, Tỉnh Nghệ An",
+  "city": "Thành Phố Vinh"
+},{
+  "_id": {
+    "$oid": "630f620a4d0ae5d122ea6a2a"
+  },
+  "name": "Phương",
+  "email": "Phuong@gmail.com",
+  "image": "user-8.jpg",
+  "active": true,
+  "password": "$2b$12$DpEpKB21WAD/LtAGP5NLc.2pUloRCJH4p1AfdZUH/1QndwkhaaYRy",
+  "role": "user",
+  "phone": 543527348,
+  "address": "Huyện Phong Điền, Tỉnh Nghệ An",
+  "city": "Thành Phố Huế"
+},{
+  "_id": {
+    "$oid": "630f63844d0ae5d122ea6a2d"
+  },
+  "name": "Sơn Hải",
+  "email": "Hai@gmail.com",
+  "image": "user-9.jpg",
+  "active": true,
+  "password": "$2b$12$BH6ySnDi0s79Bijxp1Vyn.8PrXjFd6fzLFut0wQwGh.KWr.YqvOLa",
+  "role": "user",
+  "phone": {
+    "$numberLong": "6503823550"
+  },
+  "address": "Huyện Kim Bảng, Tỉnh Hà Nam",
+  "city": "Thành Phố Phủ Lý"
+},{
+  "_id": {
+    "$oid": "630f63d44d0ae5d122ea6a2f"
+  },
+  "name": "Yến",
+  "email": "yen@gmail.com",
+  "image": "user-10.jpg",
+  "active": true,
+  "password": "$2b$12$nfhVixl3uC3lf7uzMB5K5OSye4i9gf4ah8JHKOT/8zAcfkW02ot9i",
+  "role": "user",
+  "phone": 936878777,
+  "address": "Huyện Quế Võ, Tỉnh Bắc Ninh",
+  "city": "Thành Phố Bắc Ninh"
+}]

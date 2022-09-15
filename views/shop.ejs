@@ -1,0 +1,147 @@
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="/">Trang chủ</a>
+                <a class="breadcrumb-item text-dark" href="/all-product">Cửa hàng</a>
+                <span class="breadcrumb-item active">Danh sách sản phẩm</span>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+
+<!-- Shop Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <!-- Shop Sidebar Start -->
+        <div class="col-lg-3 col-md-4">
+            <!-- Price Start -->
+            <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Lọc theo
+                    hãng</span></h5>
+            <div class="bg-light p-4 mb-30">
+                <form>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" checked id="price-all">
+                        <label class="custom-control-label" for="price-all">Tất cả Hãng</label>
+                        <span class="badge text-dark border font-weight-normal">
+                            <%= category.length %>
+                        </span>
+                    </div>
+                    <% category.forEach((el, index)=> { %>
+                        <div
+                            class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                            <input type="checkbox" name="brand" class="custom-control-input" id="price-<%= index + 1 %>"
+                                value="<%= el.brand %>">
+                            <label class="custom-control-label" for="price-<%=index + 1 %>"><%= el.name %></label>
+                            <span class="badge text-dark border font-weight-normal"><%= el.unitInStock %></span>
+                        </div>
+                        
+                        <% }) %>
+                            <button type="submit" class="btn btn-primary mt-4">Filter</button>
+                </form>
+            </div>
+            <!-- Price End -->
+        </div>
+        <!-- Shop Sidebar End -->
+        <!-- Shop Product Start -->
+        <div class="col-lg-9 col-md-8">
+            <div class="row pb-3">
+                <div class="col-12 pb-1">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div>
+                            <button class="btn btn-sm btn-light"><i class="fa fa-th-large"></i></button>
+                            <button class="btn btn-sm btn-light ml-2"><i class="fa fa-bars"></i></button>
+                        </div>
+                        <div class="ml-2">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-light dropdown-toggle"
+                                    data-toggle="dropdown">Sắp xếp theo xếp hạng</button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a class="dropdown-item" href="?sort=-ratingAverage">Cao nhất</a>
+                                    <a class="dropdown-item" href="?sort=ratingAverage">Thấp nhất</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% if(products) { %>
+                    <% products.forEach(product=> { %>
+                        <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                            <div class="product-item bg-light mb-4">
+                                <div class="product-img position-relative overflow-hidden">
+                                    <img class="img-fluid w-100" src="<%= product.imageCover %>" alt="">
+                                    <div class="product-action">
+                                        <a data-shoes="<%= JSON.stringify(product) %>"
+                                            class="add-to-cart btn btn-outline-dark btn-square"><i
+                                                class="fa fa-shopping-cart"></i></a>
+                                        <a class="btn btn-outline-dark btn-square" href="<%= product.slug %>"><i
+                                                class="fa fa-eye"></i></a>
+                                        <a class="btn btn-outline-dark btn-square" href=""><i
+                                                class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+                                <div class="text-center py-4">
+                                    <a class="h6 text-decoration-none text-truncate" href="<%= product.slug %>">
+                                        <%= product.name %>
+                                    </a>
+                                    <div class="d-flex align-items-center justify-content-center mt-2">
+                                        <% if(product.isSale===true) { %>
+                                            <% var currentPrice=numeral(product.price).value() %>
+                                                <% var salePrice=currentPrice * product.sale / 100 %>
+                                                    <% var price=currentPrice - salePrice %>
+                                                        <h5>
+                                                            <%= numeral(price).format('0,0') + 'VND' %>
+                                                        </h5>
+                                                        <h6 class="text-muted ml-2"><del>
+                                                                <%= product.price %>VND
+                                                            </del></h6>
+                                                        <% } else { %>
+                                                            <h5>
+                                                                <%= product.price %>VND
+                                                            </h5>
+                                                            <% } %>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-center mb-1">
+                                        <% for(let star in [1,2,3,4,5]) { %>
+                                            <small
+                                                class="<%= product.ratingAverage > star ? 'fas' : 'far' %> fa-star text-primary mr-1"></small>
+                                            <% } %>
+                                                <small>(<%= product.ratingQuantity %>)</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% }) %>
+                            <% } %>
+                                <div class="col-12">
+                                    <nav>
+                                        <ul class="pagination justify-content-center">
+                                            <% let i=1 %>
+                                                <li class="page-item <%= currentPage != 1 ? '' : 'disabled' %>"><a
+                                                        class="page-link"
+                                                        href="/all-product?page=<%= currentPage - 1 %>">Lùi</span></a>
+                                                </li>
+                                                <% for(i=1; i <=pages; i++) { %>
+                                                    <li class="page-item <%= i == currentPage ? 'active' : '' %>"><a
+                                                            class="page-link" id="page"
+                                                            href="/all-product?page=<%= i %>">
+                                                            <%= i %>
+                                                        </a></li>
+                                                    <% } %>
+                                                        <li
+                                                            class="page-item <%= currentPage != pages ? '' : 'disabled' %>">
+                                                            <a class="page-link"
+                                                                href="/all-product?page=<%= currentPage + 1 %>">Tiếp</a>
+                                                        </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+            </div>
+        </div>
+        <!-- Shop Product End -->
+    </div>
+</div>
+<!-- Shop End -->

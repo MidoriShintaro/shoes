@@ -1,0 +1,41 @@
+<div class="container">
+    <table class="table">
+        <tr>
+            <th class="text-center">STT</th>
+            <th class="text-center">Sản phẩm</th>
+            <th class="text-center">Tên sản phẩm</th>
+            <th class="text-center">Giá</th>
+            <th class="text-center">Địa chỉ nơi nhận</th>
+            <th class="text-center">Số điện thoại</th>
+            <th class="text-center">Tình trạng</th>
+        </tr>
+        <% for(let i=0; i < order.product.length; i++) { %>
+            <tr>
+                <td class="text-center">
+                    <%= i+1 %>
+                </td>
+                <td class="text-center">
+                    <img src="<%= order.product[i].imageCover %>" alt="" width="30%">
+                </td>
+                <td class="text-center">
+                    <%= order.product[i].name %>
+                </td>
+                <td class="text-center">
+                    <%= order.product[i].price %>
+                </td>
+                <td class="text-center">
+                    <%= order.shippingAddress %>
+                </td>
+                <td class="text-center">
+                    <%= order.phone %>
+                </td>
+                <td class="text-center">
+                    <%= order.status %>
+                </td>
+            </tr>
+            <% } %>
+    </table>
+    <div class="d-flex justify-content-end">
+        <a href="/profile" class="btn btn-primary mb-3">Quay lại</a>
+    </div>
+</div>

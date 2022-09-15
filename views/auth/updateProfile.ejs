@@ -1,0 +1,83 @@
+<div class="container">
+    <div class="main-body">
+        <form class="row" method="post" action="/user/updateProfile" enctype="multipart/form-data">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <div class="picture">
+                                <img src="/img/users/<%= user.image %>" class="picture-src" id="avatar-img" title="">
+                                <input type="file" id="image" accept="image/*" class="" name="image">
+                            </div>
+                            <div class="mt-3">
+                                <h4>
+                                    <%= user.name %>
+                                </h4>
+                                <p class="text-muted font-size-sm">
+                                    <%= user.city %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Họ tên: </h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <% if(messages.error) { %>
+                                    <span class="error text-danger">
+                                        <%= messages.error %>
+                                    </span>
+                                    <% } %>
+                                        <input type="text" name="name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Email: </h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" name="email" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Số điện thoại: </h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" name="phone" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Tỉnh/Thành phố: </h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" name="city" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0">Địa chỉ: </h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="text" name="address" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3"></div>
+                            <div class="col-sm-9 text-secondary">
+                                <input type="submit" class="btn btn-primary px-4" value="Lưu thay đổi">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

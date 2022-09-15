@@ -1,0 +1,160 @@
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="/">Trang  chủ</a>
+                <a class="breadcrumb-item text-dark" href="/all-product">Cửa hàng</a>
+                <span class="breadcrumb-item active">Giỏ hàng</span>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+
+
+<!-- Cart Start -->
+<div class="container-fluid">
+    <% if(session.cart && session.cart.totalQty> 0) { %>
+        <div class="row px-xl-5">
+            <div class="col-lg-8 table-responsive mb-5">
+                <table class="table table-light table-borderless table-hover text-center mb-0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Tổng</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle">
+                        <% for(let shoes of Object.values(session.cart.items)) { %>
+                            <tr>
+                                <td class="align-middle float-left"><img src="<%= shoes.item.imageCover %>" alt=""
+                                        style="width: 50px;">
+                                    <%= shoes.item.name %>
+                                </td>
+                                <td class="align-middle">
+                                    <% if(shoes.item.isSale) { %>
+                                        <% var currentPrice=numeral(shoes.item.price).value() %>
+                                            <% var salePrice=currentPrice * shoes.item.sale / 100 %>
+                                                <% var price=currentPrice - salePrice %>
+                                                    <%= numeral(price).format('0,0') %>
+                                                        <% } else { %>
+                                                            <%= numeral(shoes.item.price).format('0,0') %>
+                                                                <% } %>
+                                </td>
+                                <td class="align-middle">
+                                    <div class="input-group quantity mx-auto justify-content-center"
+                                        style="width: 100px;">
+                                        <span class="shoesQuantity">
+                                            <%= shoes.qty %>
+                                        </span>
+                                    </div>
+                                </td>
+                                <td class="align-middle">
+                                    <%= numeral(shoes.price).format('0,0') %>
+                                </td>
+                                <td class="align-middle"><button data-remove="<%= JSON.stringify(shoes.item) %>"
+                                        class="removeFromCart btn btn-sm btn-danger"><i
+                                            class="fa fa-times"></i></button>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-4">
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Giỏ hàng</span></h5>
+                <div class="bg-light p-30 mb-5">
+                    <div class="border-bottom pb-2">
+                        <div class="d-flex justify-content-between mb-3">
+                            <h6>Tổng phụ</h6>
+                            <h6>
+                                <%= numeral(session.cart.totalPrice).format('0,0') %>
+                            </h6>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="font-weight-medium">Vận chuyển</h6>
+                            <h6 class="font-weight-medium">Miễn phí</h6>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <div class="d-flex justify-content-between mt-2">
+                            <h5>Tổng tiền</h5>
+                            <h5>
+                                <%= numeral(session.cart.totalPrice).format('0,0') %>
+                            </h5>
+                        </div>
+                        <% if(user) { %>
+                            <button type="button" class="btn btn-block btn-primary font-weight-bold my-3 py-3"
+                                data-toggle="modal" data-target="#exampleModal">Thanh toán</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Thông tin đặt hàng</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/order/createOrder" method="post" class="form-group">
+                                                <div class="row form-group align-items-center">
+                                                    <div class="col-4 h6">
+                                                        Địa chỉ:
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <input type="text" name="shippingAddress" class="form-control"
+                                                            placeholder="123 Nguyễn Du, Quận 1, TPHCM">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group align-items-center">
+                                                    <div class="col-4 h6">
+                                                        Số điện thoại:
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <input type="text" name="phone" class="form-control"
+                                                            placeholder="0123 456 789">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group align-items-center">
+                                                    <div class="col-4 h6">
+                                                        Thành phố:
+                                                    </div>
+                                                    <div class="col-8">
+                                                        <input type="text" name="city" class="form-control"
+                                                            placeholder="TP Hồ Chí Minh">
+                                                    </div>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary float-right">Save
+                                                    changes</button>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } else { %>
+                                <a href="/user/login" class="btn btn-block btn-primary">Đăng nhập để đặt hàng</a>
+                                <% } %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } else { %>
+            <div class="empty-cart w-100 d-flex justify-content-center align-items-center">
+                <img src="img/empty-cart.webp" alt="" width="50%">
+            </div>
+            <div class="return d-flex justify-content-center mt-4">
+                <a href="/all-product" class="btn btn-primary text-center text-white-50">Quay lại mua hàng</a>
+            </div>
+            <% } %>
+</div>
+<!-- Cart End -->
